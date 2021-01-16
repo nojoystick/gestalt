@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/gestalt/static/css/main.04bffde9.chunk.css",
+    "main.js": "/gestalt/static/js/main.de26f805.chunk.js",
+    "main.js.map": "/gestalt/static/js/main.de26f805.chunk.js.map",
+    "runtime-main.js": "/gestalt/static/js/runtime-main.a63bf09c.js",
+    "runtime-main.js.map": "/gestalt/static/js/runtime-main.a63bf09c.js.map",
+    "static/js/2.5cccf375.chunk.js": "/gestalt/static/js/2.5cccf375.chunk.js",
+    "static/js/2.5cccf375.chunk.js.map": "/gestalt/static/js/2.5cccf375.chunk.js.map",
+    "index.html": "/gestalt/index.html",
+    "static/css/main.04bffde9.chunk.css.map": "/gestalt/static/css/main.04bffde9.chunk.css.map",
+    "static/js/2.5cccf375.chunk.js.LICENSE.txt": "/gestalt/static/js/2.5cccf375.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a63bf09c.js",
+    "static/js/2.5cccf375.chunk.js",
+    "static/css/main.04bffde9.chunk.css",
+    "static/js/main.de26f805.chunk.js"
+  ]
+}
