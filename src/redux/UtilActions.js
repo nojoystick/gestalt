@@ -8,6 +8,15 @@ const UtilActions = {
       },
     };
   },
+  setPresetName: (name, index) => {
+    return {
+      type: 'SET_PRESET_NAME',
+      payload: {
+        name: name,
+        index: index,
+      },
+    };
+  },
 };
 
 export default UtilActions;

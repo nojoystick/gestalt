@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     flexDirection: 'row',
     flexWrap: (state) => (state.isMobile ? 'nowrap' : 'wrap'),
     justifyContent: (state) => (state.isMobile ? 'start' : 'center'),
-    margin: '10px',
+    margin: (state) => (state.isTablet ? '10px 10px 40px 10px' : '10px'),
     maxWidth: (state) => (state.isMobile ? 'calc(100% - 80px)' : 'unset'),
     overflow: 'auto',
     padding: (state) => (state.isMobile ? '20px' : '0px'),
@@ -24,7 +24,8 @@ const useStyles = makeStyles({
 
 const Board = () => {
   const isMobile = useSelector((state) => state.isMobile);
-  const classes = useStyles({ isMobile: isMobile });
+  const isTablet = useSelector((state) => state.isTablet);
+  const classes = useStyles({ isMobile: isMobile, isTablet: isTablet });
   return (
     <div className={classes.board}>
       {effects.map((effect, index) => {

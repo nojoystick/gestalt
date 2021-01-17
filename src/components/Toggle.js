@@ -1,7 +1,6 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-
 import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
 import { colors } from '../constants/theme';
 
 const StyledSwitch = withStyles((theme) => ({
@@ -15,7 +14,7 @@ const StyledSwitch = withStyles((theme) => ({
   switchBase: {
     padding: 1,
     '&$checked': {
-      transform: 'translateX(23px)',
+      transform: 'translateX(20px)',
       color: colors.tertiaryBackground,
       '& + $track': {
         backgroundColor: colors.quarternaryBackground,
@@ -27,10 +26,10 @@ const StyledSwitch = withStyles((theme) => ({
   thumb: {
     width: 20,
     height: 20,
-    margin: '2px 0px 0px 2px',
+    margin: '1px 0px 0px 2px',
     borderRadius: '20%',
     color: colors.tertiaryBackground,
-    border: `1px solid ${colors.text}`,
+    border: `2px solid ${colors.text}`,
   },
   track: {
     borderRadius: '20%',

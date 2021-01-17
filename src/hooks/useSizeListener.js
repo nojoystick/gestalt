@@ -11,7 +11,6 @@ export default function useSizeListener() {
   const dispatch = useDispatch();
   useEffect(() => {
     const handleSizeChange = () => {
-      console.log(window.innerWidth);
       dispatch(
         UtilActions.setDimensions(window.innerWidth, window.innerHeight)
       );
