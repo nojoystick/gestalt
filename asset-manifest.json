@@ -1,20 +1,32 @@
 {
   "files": {
-    "main.css": "/gestalt/static/css/main.04bffde9.chunk.css",
-    "main.js": "/gestalt/static/js/main.bcc9f57b.chunk.js",
-    "main.js.map": "/gestalt/static/js/main.bcc9f57b.chunk.js.map",
+    "main.css": "/gestalt/static/css/main.fc3407fa.chunk.css",
+    "main.js": "/gestalt/static/js/main.912eb57f.chunk.js",
+    "main.js.map": "/gestalt/static/js/main.912eb57f.chunk.js.map",
     "runtime-main.js": "/gestalt/static/js/runtime-main.a63bf09c.js",
     "runtime-main.js.map": "/gestalt/static/js/runtime-main.a63bf09c.js.map",
-    "static/js/2.0f68262e.chunk.js": "/gestalt/static/js/2.0f68262e.chunk.js",
-    "static/js/2.0f68262e.chunk.js.map": "/gestalt/static/js/2.0f68262e.chunk.js.map",
+    "static/css/2.ed1e3bae.chunk.css": "/gestalt/static/css/2.ed1e3bae.chunk.css",
+    "static/js/2.e550d54c.chunk.js": "/gestalt/static/js/2.e550d54c.chunk.js",
+    "static/js/2.e550d54c.chunk.js.map": "/gestalt/static/js/2.e550d54c.chunk.js.map",
     "index.html": "/gestalt/index.html",
-    "static/css/main.04bffde9.chunk.css.map": "/gestalt/static/css/main.04bffde9.chunk.css.map",
-    "static/js/2.0f68262e.chunk.js.LICENSE.txt": "/gestalt/static/js/2.0f68262e.chunk.js.LICENSE.txt"
+    "static/css/2.ed1e3bae.chunk.css.map": "/gestalt/static/css/2.ed1e3bae.chunk.css.map",
+    "static/css/main.fc3407fa.chunk.css.map": "/gestalt/static/css/main.fc3407fa.chunk.css.map",
+    "static/js/2.e550d54c.chunk.js.LICENSE.txt": "/gestalt/static/js/2.e550d54c.chunk.js.LICENSE.txt",
+    "static/media/glanz.c63dd6ec.png": "/gestalt/static/media/glanz.c63dd6ec.png",
+    "static/media/lügner.3dadb09f.png": "/gestalt/static/media/lügner.3dadb09f.png",
+    "static/media/nojoystick.9a346413.png": "/gestalt/static/media/nojoystick.9a346413.png",
+    "static/media/pendeln.ae355d20.png": "/gestalt/static/media/pendeln.ae355d20.png",
+    "static/media/post.d6b86012.png": "/gestalt/static/media/post.d6b86012.png",
+    "static/media/reflektion.e17bd2f7.png": "/gestalt/static/media/reflektion.e17bd2f7.png",
+    "static/media/sieb.bd116f8b.png": "/gestalt/static/media/sieb.bd116f8b.png",
+    "static/media/verbrecher.020c46a5.png": "/gestalt/static/media/verbrecher.020c46a5.png",
+    "static/media/wiedersehen.e633e363.png": "/gestalt/static/media/wiedersehen.e633e363.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a63bf09c.js",
-    "static/js/2.0f68262e.chunk.js",
-    "static/css/main.04bffde9.chunk.css",
-    "static/js/main.bcc9f57b.chunk.js"
+    "static/css/2.ed1e3bae.chunk.css",
+    "static/js/2.e550d54c.chunk.js",
+    "static/css/main.fc3407fa.chunk.css",
+    "static/js/main.912eb57f.chunk.js"
   ]
 }
