@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { AudioActions } from '../redux';
+import { ConfigActions } from '../redux';
 import { colors } from '../constants/theme';
 
 const useStyles = makeStyles({
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 });
 
 const PresetButton = ({ borderColor, fillColor, activeColor, index }) => {
-  const selectedPreset = useSelector((state) => state.selectedPreset);
+  const selectedPreset = useSelector((state) => state.config.selectedPreset);
   const dispatch = useDispatch();
   const classes = useStyles({
     borderColor: borderColor,
@@ -35,7 +35,7 @@ const PresetButton = ({ borderColor, fillColor, activeColor, index }) => {
   });
 
   const loadPreset = () => {
-    dispatch(AudioActions.setPreset(index));
+    dispatch(ConfigActions.setPreset(index));
   };
 
   return (

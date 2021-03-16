@@ -4,7 +4,7 @@ import PresetButton from './PresetButton';
 import { colors, type } from '../constants/theme';
 import { IconSet, PresetButtons } from '../constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { UtilActions } from '../redux';
+import { ConfigActions } from '../redux';
 import Icon from './Icon';
 
 const useStyles = makeStyles({
@@ -61,19 +61,19 @@ const useStyles = makeStyles({
 const PresetsMenu = ({ customStyles }) => {
   const [isHovered, setIsHovered] = useState(-1);
   const [isEditing, setIsEditing] = useState(-1);
-  const presetNames = useSelector((state) => state.presetNames);
+  const presetNames = useSelector((state) => state.config.presetNames);
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const updateName = (e, index) => {
-    dispatch(UtilActions.setPresetName(e.target.value, index));
+    dispatch(ConfigActions.setPresetName(e.target.value, index));
     setIsEditing(-1);
   };
 
   useEffect(() => {
     const _onKeyDown = (e) => {
       if (e.ctrlKey || e.key === 'Enter') {
-        dispatch(UtilActions.setPresetName(e.target.value, isEditing));
+        dispatch(ConfigActions.setPresetName(e.target.value, isEditing));
         setIsEditing(-1);
       }
     };
@@ -92,7 +92,7 @@ const PresetsMenu = ({ customStyles }) => {
     <div className={`${classes.container} ${customStyles}`}>
       {PresetButtons.map((button, index) => {
         return (
-          <div className={classes.buttonTile}>
+          <div className={classes.buttonTile} key={index}>
             <PresetButton {...button} index={index} key={index} />
             {isEditing === index ? (
               <input

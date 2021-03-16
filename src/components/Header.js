@@ -15,11 +15,12 @@ const useStyles = makeStyles({
     font: type.h1,
     color: colors.text,
     margin: '20px',
+    userSelect: 'none',
   },
 });
 
 const Header = () => {
-  const isMobile = useSelector((state) => state.isMobile);
+  const isMobile = useSelector((state) => state.config.isMobile);
   const classes = useStyles({ isMobile: isMobile });
 
   return (

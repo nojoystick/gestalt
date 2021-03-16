@@ -12,7 +12,7 @@ const type = {
   body: `400 16px/24px ${primaryFont}`,
   bodySemibold: `600 16px/24px ${primaryFont}`,
   bodyBold: `700 14px/16px ${secondaryFont}`,
-  bodyXS: `700 10px/12px ${secondaryFont}`,
+  bodyS: `400 14px/16px ${secondaryFont}`,
   subh4: `italic 300 20px/24px ${secondaryFont}`,
   subh5: `italic 300 14px/18px ${secondaryFont}`,
 };

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { UtilActions } from '../redux';
+import { ConfigActions } from '../redux';
 
 /**
  * Listens for window resizing and submits the dimensions to the Redux
@@ -12,7 +12,7 @@ export default function useSizeListener() {
   useEffect(() => {
     const handleSizeChange = () => {
       dispatch(
-        UtilActions.setDimensions(window.innerWidth, window.innerHeight)
+        ConfigActions.setDimensions(window.innerWidth, window.innerHeight)
       );
     };
     window.addEventListener('resize', handleSizeChange);

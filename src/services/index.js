@@ -1,5 +1,6 @@
 import CoreAudioService from './CoreAudioService';
-import MIDIService from './MIDIService';
+import useMidiService from './MIDIService';
 import EffectsService from './EffectsService';
+import Effect from './Effect';
 
-export { CoreAudioService, MIDIService, EffectsService };
+export { CoreAudioService, useMidiService, EffectsService, Effect };

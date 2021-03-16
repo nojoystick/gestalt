@@ -1,83 +1,126 @@
 import React from 'react';
-import { Knob, Arc, Value } from 'rc-knob';
+import { Donut } from 'react-dial-knob';
 import { colors, type } from '../constants/theme';
 import { makeStyles } from '@material-ui/styles';
+import { useDispatch } from 'react-redux';
+import './Knob.css';
 
-const GestaltKnob = ({ size = 100, width = 10, max = 100, min = 0, label }) => {
-  const useStyles = makeStyles({
-    knob: {
-      borderRadius: `${size / 2}px`,
-      boxShadow: colors.boxShadow,
-      '&:hover': {
-        opacity: '0.8',
-      },
-      '&:focus': {
-        opacity: '0.8',
-      },
+const GestaltKnob = ({ size = 100, padding = 0, max = 100, min = 0, backgroundColor = colors.secondaryBackground, label, name, value, setValue, isDispatch, setValueParams, className }) => {
+  const mapLengthToLabelPosition = {
+    '0': {
+      left: (size / 3),
+      top: size - 15 - size / 1.9,
     },
-    arc: {
-      boxShadow: colors.boxShadow,
+    '1': {
+      left: (size / 2.5),
+      top: size - 15 - size / 1.9,
     },
+    '2': {
+      left: (size / 2),
+      top: size - 15 - size / 1.9,
+    },
+    '3': {
+      left: (size / 2.7),
+      top: size - 15 - size / 2.3,
+    },
+    '4': {
+      left: (size / 3.2),
+      top: size - 15 - size / 2.3,
+    },
+    '5': {
+      left: (size / 3.6),
+      top: size - 15 - size / 2.3,
+    },
+    '6': {
+      left: size - 23 - (size / 2),
+      top: size - 15 - size / 2.3,
+    },
+    '7': {
+      left: size - 28 - (size / 2),
+      top: size - 15 - size / 2.3,
+    }
+  }
+
+    const useStyles = makeStyles({
     container: {
       position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: padding,
     },
     value: {
       font: type.h3,
       fill: colors.text,
     },
     label: {
-      font: type.h3,
+      font: label && label.length > 1 ? type.h5 : type.h3,
       color: colors.text,
       position: 'absolute',
-      top: `${size / 2 - size / 6}px`,
-      left:
-        label && label.size > 0
-          ? `${size / 2 - (size / 14) * label.length}px`
-          : `${size / 2 - size / 5}px`,
+      top: mapLengthToLabelPosition[label && label.length ? label.length : '0'].top,
+      left: mapLengthToLabelPosition[label && label.length ? label.length : '0'].left,
     },
+    name: {
+      marginTop: '5px',
+      font: type.body,
+      userSelect: 'none'
+    }
   });
+
+  const DonutTheme = {
+    donutColor: colors.text,
+    bgrColor: colors.tertiaryBackground,
+    centerColor: backgroundColor,
+    centerFocusedColor: backgroundColor,
+    donutThickness: 7
+  }
+  const KnobStyle = {
+    borderRadius: `${size / 2}px`,
+    boxShadow: colors.boxShadow,
+    '&:hover': {
+      opacity: '0.8',
+    },
+    '&:focus': {
+      opacity: '0.8',
+    },
+  }
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   if (label) {
     return (
-      <div className={classes.container}>
-        <Knob
-          size={size}
-          angleOffset={0}
-          angleRange={359}
+      <div className={`${classes.container} knob-no-value ${className}`}>
+        <Donut
+          diameter={size}
           min={min}
           max={max}
-          className={classes.knob}
+          step={1}
+          value={value}
+          onValueChange={e => isDispatch ? dispatch(setValue({...setValueParams, value: e})): setValue}
+          theme={DonutTheme}
+          knobStyle={KnobStyle}
         >
-          <Arc
-            className={classes.arc}
-            arcWidth={width}
-            color={colors.text}
-            radius={size / 2}
-            background={colors.tertiaryBackground}
-          />
-        </Knob>
-        {label && <span className={classes.label}>{label}</span>}
+          {label && <span className={classes.label}>{label}</span>}    
+        </Donut>
+        <span className={classes.name}>{name}</span>
       </div>
     );
   }
   return (
-    <Knob
-      size={size}
-      angleOffset={0}
-      angleRange={359}
-      min={min}
-      max={max}
-      className={classes.knob}
-    >
-      <Arc
-        className={classes.arc}
-        arcWidth={width}
-        color={colors.text}
-        radius={size / 2}
-        background={colors.tertiaryBackground}
+    <div className={`${classes.container} ${className}`}>
+      <Donut
+        diameter={size}
+        min={min}
+        max={max}
+        step={1}
+        value={value}
+        onValueChange={e => isDispatch ? dispatch(setValue({...setValueParams, value: e})): setValue}
+        className={classes.knob}
+        theme={DonutTheme}
+        knobStyle={KnobStyle}
       />
-      <Value marginBottom={size / 2 - size / 10} className={classes.value} />
-    </Knob>
+      <span className={classes.name}>{name}</span>
+    </div>
   );
 };
 

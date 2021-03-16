@@ -1,43 +1,48 @@
-import { CoreAudioService, MIDIService, EffectsService } from '../services';
-import { Breakpoints } from '../constants';
+import { CoreAudioService, EffectsService } from '../services';
+import { Effect } from '../services';
 
 const defaultState = {
-  width: window.innerWidth,
-  height: window.innerHeight,
-  isMobile: window.innerWidth <= Breakpoints.MOBILE,
-  isTablet:
-    window.innerWidth > Breakpoints.MOBILE &&
-    window.innerWidth <= Breakpoints.TABLET,
-  isDesktop: window.innerWidth > Breakpoints.TABLET,
-  selectedPreset: 0,
-  presetNames: [],
+  effects: [],
+  volume: 50,
+  tempo: 120
 };
 
 const AudioReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case 'ADD_EFFECT':
+      return { ...state, effects: [ ...state.effects, new Effect(action.payload)]};
     case 'INITIALIZE_AUDIO':
       return { ...state, coreAudio: new CoreAudioService() };
     case 'INITIALIZE_EFFECTS':
       return { ...state, coreAudio: new EffectsService() };
-    case 'INITIALIZE_MIDI':
-      return { ...state, coreAudio: new MIDIService() };
-    case 'SET_DIMENSIONS':
-      return {
-        ...state,
-        width: action.payload.width,
-        height: action.payload.height,
-        isMobile: action.payload.width <= Breakpoints.MOBILE,
-        isTablet:
-          action.payload.width > Breakpoints.MOBILE &&
-          action.payload.width <= Breakpoints.TABLET,
-        isDesktop: action.payload.width > Breakpoints.TABLET,
-      };
-    case 'SET_PRESET_NAME':
-      console.log('set preset name', action.payload.index);
-      state.presetNames[action.payload.index] = action.payload.name;
+    case 'ADD_NOTE':
       return { ...state };
-    case 'SET_SELECTED_PRESET':
-      return { ...state, selectedPreset: action.payload };
+    case 'REMOVE_NOTE':
+      return { ...state };
+    case 'REMOVE_EFFECT':
+      const _updatedEffects = state.effects.slice();
+      _updatedEffects.splice(action.payload, 1);
+      return { ...state, effects: _updatedEffects };
+    case 'PITCH_BEND':
+      return { ...state };
+    case 'TOGGLE_PEDAL':
+      return { ...state };
+    case 'TOGGLE_EFFECT':
+      const updatedEffects = state.effects.slice();
+      updatedEffects[action.payload].isActive = !updatedEffects[action.payload].isActive;
+      return { ...state, effects: updatedEffects }
+    case 'SET_VOLUME': 
+      return { ...state, volume: action.payload };
+    case 'SET_TEMPO': 
+      return { ...state, tempo: action.payload };
+    case 'UPDATE_EFFECT_PARAM':
+      const effectsToUpdate = state.effects.slice();
+      if(effectsToUpdate[action.indexOfEffect] && 
+        effectsToUpdate[action.indexOfEffect].params[action.typeOfParam] && 
+        effectsToUpdate[action.indexOfEffect].params[action.typeOfParam][action.indexOfParam]){
+          effectsToUpdate[action.indexOfEffect].params[action.typeOfParam][action.indexOfParam].value = action.value;
+      }
+      return { ...state, effects: effectsToUpdate };
     default:
       return { ...state };
   }

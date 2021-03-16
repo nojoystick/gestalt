@@ -4,8 +4,6 @@ import EffectPanel from './EffectPanel';
 import { makeStyles } from '@material-ui/styles';
 import { colors } from '../constants/theme';
 
-const effects = [1, 2, 3, 4, 5, 6, 7, 8];
-
 const useStyles = makeStyles({
   board: {
     display: 'flex',
@@ -23,14 +21,17 @@ const useStyles = makeStyles({
 });
 
 const Board = () => {
-  const isMobile = useSelector((state) => state.isMobile);
-  const isTablet = useSelector((state) => state.isTablet);
+  const isMobile = useSelector((state) => state.config.isMobile);
+  const isTablet = useSelector((state) => state.config.isTablet);
+  const effects = useSelector((state) => state.audio.effects);
   const classes = useStyles({ isMobile: isMobile, isTablet: isTablet });
+
   return (
     <div className={classes.board}>
-      {effects.map((effect, index) => {
-        return <EffectPanel key={index} />;
+      {effects && effects.map((effect, index) => {
+        return <EffectPanel key={index} {...effect} index={index} />;
       })}
+      {(!effects || effects.length < 8) && <EffectPanel isAddButton />}
     </div>
   );
 };

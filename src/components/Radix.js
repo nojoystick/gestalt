@@ -35,9 +35,9 @@ const useStyles = makeStyles({
 const Radix = ({ contents }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [numTabs, setNumTabs] = useState(2);
-  const isMobile = useSelector((state) => state.isMobile);
-  const isTablet = useSelector((state) => state.isTablet);
-  const isDesktop = useSelector((state) => state.isDesktop);
+  const isMobile = useSelector((state) => state.config.isMobile);
+  const isTablet = useSelector((state) => state.config.isTablet);
+  const isDesktop = useSelector((state) => state.config.isDesktop);
   const classes = useStyles({
     isMobile: isMobile,
     isTablet: isTablet,

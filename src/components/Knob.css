@@ -1,0 +1,7 @@
+/*
+  Disables the knob's value label
+  Unfortunately there's no better way to do this with this library :-/
+*/
+.knob-no-value > div > div > div :nth-child(2) {
+  font-size: 0px !important;
+}

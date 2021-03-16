@@ -2,6 +2,7 @@ import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/core/styles';
 import { colors } from '../constants/theme';
+import { useDispatch } from 'react-redux';
 
 const StyledSwitch = withStyles((theme) => ({
   root: {
@@ -41,8 +42,9 @@ const StyledSwitch = withStyles((theme) => ({
   focusVisible: {},
 }))(Switch);
 
-const GestaltToggle = ({ isActive, onChange }) => {
-  return <StyledSwitch checked={isActive} onChange={onChange} name='checked' />;
+const GestaltToggle = ({ isActive, onChange, isDispatch, changeParam }) => {
+  const dispatch = useDispatch();
+  return <StyledSwitch checked={isActive} onChange={isDispatch ? () => dispatch(onChange(changeParam)) : onChange } name='checked' />;
 };
 
 export default GestaltToggle;

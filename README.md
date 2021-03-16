@@ -4,23 +4,23 @@ gestalt is a browser-based MIDI synthesizer. hook up your MIDI controller and ge
 
 ## desktop
 
-![preview](https://github.com/nojoystick/gestalt/raw/master/assets/desktop.png)
+![preview](https://github.com/nojoystick/gestalt/raw/master/assets/wireframes/desktop.png)
 
 ## presets
 
-![preview](https://github.com/nojoystick/gestalt/raw/master/assets/palette.png)
+![preview](https://github.com/nojoystick/gestalt/raw/master/assets/wireframes/palette.png)
 
 ## library
 
-![preview](https://github.com/nojoystick/gestalt/raw/master/assets/library.png)
+![preview](https://github.com/nojoystick/gestalt/raw/master/assets/wireframes/library.png)
 
 ## tablet
 
-![preview](https://github.com/nojoystick/gestalt/raw/master/assets/tablet.png)
+![preview](https://github.com/nojoystick/gestalt/raw/master/assets/wireframes/tablet.png)
 
 ## mobile
 
-![preview](https://github.com/nojoystick/gestalt/raw/master/assets/mobile.png)
+![preview](https://github.com/nojoystick/gestalt/raw/master/assets/wireframes/mobile.png)
 
 # Getting Started with Create React App
 
