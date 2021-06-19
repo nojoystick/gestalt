@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/gestalt/static/css/main.fc3407fa.chunk.css",
-    "main.js": "/gestalt/static/js/main.912eb57f.chunk.js",
-    "main.js.map": "/gestalt/static/js/main.912eb57f.chunk.js.map",
+    "main.js": "/gestalt/static/js/main.816f7251.chunk.js",
+    "main.js.map": "/gestalt/static/js/main.816f7251.chunk.js.map",
     "runtime-main.js": "/gestalt/static/js/runtime-main.a63bf09c.js",
     "runtime-main.js.map": "/gestalt/static/js/runtime-main.a63bf09c.js.map",
     "static/css/2.ed1e3bae.chunk.css": "/gestalt/static/css/2.ed1e3bae.chunk.css",
-    "static/js/2.e550d54c.chunk.js": "/gestalt/static/js/2.e550d54c.chunk.js",
-    "static/js/2.e550d54c.chunk.js.map": "/gestalt/static/js/2.e550d54c.chunk.js.map",
+    "static/js/2.ba99196e.chunk.js": "/gestalt/static/js/2.ba99196e.chunk.js",
+    "static/js/2.ba99196e.chunk.js.map": "/gestalt/static/js/2.ba99196e.chunk.js.map",
     "index.html": "/gestalt/index.html",
     "static/css/2.ed1e3bae.chunk.css.map": "/gestalt/static/css/2.ed1e3bae.chunk.css.map",
     "static/css/main.fc3407fa.chunk.css.map": "/gestalt/static/css/main.fc3407fa.chunk.css.map",
-    "static/js/2.e550d54c.chunk.js.LICENSE.txt": "/gestalt/static/js/2.e550d54c.chunk.js.LICENSE.txt",
+    "static/js/2.ba99196e.chunk.js.LICENSE.txt": "/gestalt/static/js/2.ba99196e.chunk.js.LICENSE.txt",
     "static/media/glanz.c63dd6ec.png": "/gestalt/static/media/glanz.c63dd6ec.png",
     "static/media/lügner.3dadb09f.png": "/gestalt/static/media/lügner.3dadb09f.png",
     "static/media/nojoystick.9a346413.png": "/gestalt/static/media/nojoystick.9a346413.png",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.a63bf09c.js",
     "static/css/2.ed1e3bae.chunk.css",
-    "static/js/2.e550d54c.chunk.js",
+    "static/js/2.ba99196e.chunk.js",
     "static/css/main.fc3407fa.chunk.css",
-    "static/js/main.912eb57f.chunk.js"
+    "static/js/main.816f7251.chunk.js"
   ]
 }
