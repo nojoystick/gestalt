@@ -12,7 +12,7 @@ import PanelBody from './PanelBody';
 import PanelHeader from './PanelHeader';
 import PresetButton from './PresetButton';
 import PresetsMenu from './PresetsMenu';
-import Radix from './Radix';
+import Quelle from './Quelle';
 import Settings from './Settings';
 import TabSelector from './TabSelector';
 import Toggle from './Toggle';
@@ -32,7 +32,7 @@ export {
   PanelHeader,
   PresetButton,
   PresetsMenu,
-  Radix,
+  Quelle,
   Settings,
   TabSelector,
   Toggle,

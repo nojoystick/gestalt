@@ -8,6 +8,7 @@ const defaultState = {
     window.innerWidth > Breakpoints.MOBILE &&
     window.innerWidth <= Breakpoints.TABLET,
   isDesktop: window.innerWidth > Breakpoints.TABLET,
+  keyboardInput: false,
   modalVisible: false,
   notification: {},
   selectedPreset: 0,
@@ -21,7 +22,6 @@ const defaultState = {
 const ConfigReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'SET_DEVICE_CONNECTED':
-      console.log('device', action.payload);
       return {
         ...state,
         deviceConnected: action.payload,
@@ -36,6 +36,12 @@ const ConfigReducer = (state = defaultState, action) => {
           action.payload.width > Breakpoints.MOBILE &&
           action.payload.width <= Breakpoints.TABLET,
         isDesktop: action.payload.width > Breakpoints.TABLET,
+      };
+    case 'SET_KEYBOARD_INPUT':
+      return {
+        ...state,
+        keyboardInput:
+          action.payload === undefined ? !state.keyboardInput : action.payload,
       };
     case 'SET_MODAL_VISIBLE':
       return {
@@ -58,7 +64,11 @@ const ConfigReducer = (state = defaultState, action) => {
     case 'SET_SELECTED_PRESET':
       return { ...state, selectedPreset: action.payload };
     case 'SET_SHOW_HELP':
-      return { ...state, showHelp: action.payload === undefined ? !state.showHelp : action.payload };
+      return {
+        ...state,
+        showHelp:
+          action.payload === undefined ? !state.showHelp : action.payload,
+      };
     default:
       return { ...state };
   }

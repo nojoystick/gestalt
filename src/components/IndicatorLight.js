@@ -1,6 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { colors } from '../constants/theme';
+import { colors, type } from '../constants/theme';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
+import 'tippy.js/animations/scale.css';
 
 const useStyles = makeStyles({
   container: {
@@ -75,27 +79,69 @@ const useStyles = makeStyles({
       transform: 'rotate(720deg)',
     },
   },
+  tooltipParent: {
+    padding: '5px',
+    boxShadow: colors.boxShadow,
+    borderRadius: '4px',
+    border: `2px solid ${colors.text}`,
+    backgroundColor: `${colors.background} !important`,
+    width: 'fit-content',
+  },
+  tooltipContent: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    color: colors.text,
+    font: type.h5,
+    whiteSpace: 'nowrap',
+  },
 });
 
-const IndicatorLight = ({ isScanning, isActive }) => {
+const IndicatorLight = ({ isScanning, isActive, label, tooltipMessages }) => {
   const classes = useStyles();
   return (
-    <span className={classes.parent}>
-      {isScanning && (
-        <>
-          <span className={`${classes.scanContainer} ${classes.rotate1}`}>
-            <span className={`${classes.scanBulb} ${classes.bulb1}`} />
-          </span>
-          <span className={`${classes.scanContainer} ${classes.rotate2}`}>
-            <span className={`${classes.scanBulb} ${classes.bulb2}`} />
-          </span>
-        </>
-      )}
-      <span
-        className={`${classes.light} ${
-          isActive ? classes.greenLight : classes.redLight
-        }`}
-      />
+    <>
+      <span className={classes.parent}>
+        {isScanning && (
+          <>
+            <span className={`${classes.scanContainer} ${classes.rotate1}`}>
+              <span className={`${classes.scanBulb} ${classes.bulb1}`} />
+            </span>
+            <span className={`${classes.scanContainer} ${classes.rotate2}`}>
+              <span className={`${classes.scanBulb} ${classes.bulb2}`} />
+            </span>
+          </>
+        )}
+        <Tippy
+          content={
+            <InfoTooltip
+              isActive={isActive}
+              tooltipMessages={tooltipMessages}
+            />
+          }
+          className={classes.tooltipParent}
+          theme={'light'}
+          animation={'scale'}
+          interactive={true}
+          placement={'left'}
+        >
+          <span
+            className={`${classes.light} ${
+              isActive ? classes.greenLight : classes.redLight
+            }`}
+          />
+        </Tippy>
+      </span>
+      <span>{label}</span>
+    </>
+  );
+};
+
+const InfoTooltip = ({ isActive, tooltipMessages }) => {
+  const classes = useStyles();
+  return (
+    <span className={classes.tooltipContent}>
+      {isActive ? tooltipMessages[0] : tooltipMessages[1]}
     </span>
   );
 };

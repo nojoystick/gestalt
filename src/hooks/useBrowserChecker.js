@@ -14,7 +14,7 @@ const useBrowserChecker = () => {
     // Opera 8.0+
     const isOpera =
       (!!window.opr && !!window.opr.addons) ||
-      !!window.opera ||
+      window.opera ||
       navigator.userAgent.indexOf(' OPR/') >= 0;
 
     // Internet Explorer 6-11
@@ -25,7 +25,7 @@ const useBrowserChecker = () => {
 
     // Chrome 1 - 71
     const isChrome =
-      !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+      window.chrome || !!window.chrome.webstore || !!window.chrome.runtime;
 
     if (isEdge || isChrome || isOpera) {
     } else {

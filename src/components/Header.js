@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <h1 className={classes.title}>gestalt</h1>
+      <h1 className={classes.title}>name</h1>
       <Master />
     </div>
   );

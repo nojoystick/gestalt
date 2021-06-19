@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/styles';
 import { colors } from '../constants/theme';
 
 const TITLES = {
-  title: 'radix',
+  title: 'quelle',
   subtitle: 'oscillators',
 };
 
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Radix = ({ contents }) => {
+const Quelle = ({ contents }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [numTabs, setNumTabs] = useState(2);
   const isMobile = useSelector((state) => state.config.isMobile);
@@ -62,4 +62,4 @@ const Radix = ({ contents }) => {
   );
 };
 
-export default Radix;
+export default Quelle;

@@ -14,6 +14,12 @@ const ConfigActions = {
       },
     };
   },
+  setKeyboardInput: (bool) => {
+    return {
+      type: 'SET_KEYBOARD_INPUT',
+      payload: bool,
+    };
+  },
   setModalVisible: (bool) => {
     return {
       type: 'SET_MODAL_VISIBLE',
@@ -51,9 +57,8 @@ const ConfigActions = {
     return {
       type: 'SET_SHOW_HELP',
       payload: bool,
-    }
+    };
   },
 };
-  
+
 export default ConfigActions;
-  

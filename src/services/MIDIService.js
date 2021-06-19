@@ -13,7 +13,7 @@ const useMidiService = () => {
   const [scanFlag, setScanFlag] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
-    try{
+    try {
       WebMidi.enable(() => {
         dispatch(ConfigActions.setScanningForDevice(true));
         // Reacting when a new device becomes available
@@ -21,6 +21,8 @@ const useMidiService = () => {
         // But the animation only plays when there's no connected device
         // Lets' keep that our little secret ;-)
         WebMidi.addListener('connected', function (e) {
+          console.log(e);
+          // todo: store the input name in the deviceConnected field
           dispatch(ConfigActions.setDeviceConnected(true));
           dispatch(ConfigActions.setScanningForDevice(false));
           setTimeout(() => setScanFlag((s) => !s), 500);
@@ -34,11 +36,9 @@ const useMidiService = () => {
         });
         WebMidi.inputs.forEach((input) => {
           input.addListener('noteon', 'all', (event) => {
-            console.log('note was played', event);
             dispatch(AudioActions.noteOn(event));
           });
           input.addListener('noteoff', 'all', (event) => {
-            console.log('note was released', event);
             dispatch(AudioActions.noteOff(event));
           });
           input.addListener('pitchbend', 'all', (event) => {
@@ -56,7 +56,8 @@ const useMidiService = () => {
           });
         });
       });
-    } catch(e) {
+    } catch (e) {
+      console.log('error');
       dispatch(ConfigActions.setNotification(NOTIFICATION_MESSAGE));
       setTimeout(() => dispatch(ConfigActions.setModalVisible(true), 3000));
     }

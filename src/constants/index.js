@@ -2,5 +2,14 @@ import IconSet from './IconSet';
 import Breakpoints from './Breakpoints';
 import LibraryOptions from './Library';
 import PresetButtons from './PresetButtons';
+import Volume from './Volume';
+import Frequency from './Frequencies';
 
-export { IconSet, Breakpoints, LibraryOptions, PresetButtons };
+export {
+  Frequency,
+  Volume,
+  IconSet,
+  Breakpoints,
+  LibraryOptions,
+  PresetButtons,
+};

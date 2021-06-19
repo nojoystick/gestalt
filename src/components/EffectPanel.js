@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
   plus: {
     backgroundColor: 'transparent',
@@ -51,7 +51,7 @@ const EffectPanel = ({
   params,
   index,
   isActive,
-  isAddButton
+  isAddButton,
 }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [plusFocused, setPlusFocused] = useState(false);
@@ -60,18 +60,19 @@ const EffectPanel = ({
   const classes = useStyles();
 
   const addTab = () => {
-    dispatch(ConfigActions.setNotification({
-      title: 'library',
-      body: <Library />,
-      buttonText: 'cancel'
-    }))
+    dispatch(
+      ConfigActions.setNotification({
+        title: 'library',
+        body: <Library />,
+        buttonText: 'cancel',
+      })
+    );
     setTimeout(() => dispatch(ConfigActions.setModalVisible(true), 3000));
   };
 
   return (
     <div className={classes.panel}>
-      {
-        isAddButton ?
+      {isAddButton ? (
         <span className={classes.plusContainer}>
           <button
             className={classes.plus}
@@ -81,25 +82,31 @@ const EffectPanel = ({
             onFocus={() => setPlusFocused(true)}
             onBlur={() => setPlusFocused(false)}
           >
-            <Icon {...IconSet.PLUS} 
+            <Icon
+              {...IconSet.PLUS}
               stroke={plusFocused ? colors.text : colors.quinternaryBackground}
               strokeWidth={2}
             />
           </button>
         </span>
-        :
+      ) : (
         <>
-        <PanelHeader title={title} subtitle={subtitle} isActive={isActive} index={index} />
-        <PanelBody params={params} tabIndex={selectedTab} index={index} />
-        <span className={classes.tabs}>
-          <TabSelector
-            selectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
-            numTabs={2}
+          <PanelHeader
+            title={title}
+            subtitle={subtitle}
+            isActive={isActive}
+            index={index}
           />
-        </span>
+          <PanelBody params={params} tabIndex={selectedTab} index={index} />
+          <span className={classes.tabs}>
+            <TabSelector
+              selectedTab={selectedTab}
+              setSelectedTab={setSelectedTab}
+              numTabs={2}
+            />
+          </span>
         </>
-      }
+      )}
     </div>
   );
 };

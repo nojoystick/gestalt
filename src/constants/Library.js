@@ -10,7 +10,7 @@ const LibraryOptions = [
   {
     title: 'glanz',
     subtitle: 'preamp and equalizer',
-    description: 'cut',
+    description: '',
     borderColor: colors.a,
     fillColor: colors.a40,
     activeColor: colors.a80,
@@ -45,13 +45,13 @@ const LibraryOptions = [
           value: '0',
           hideLabel: true,
         },
-      ]
+      ],
     },
   },
   {
     title: 'lügner',
     subtitle: 'distortion',
-    description: 'you need less of this than you think you do',
+    description: '',
     borderColor: colors.b,
     fillColor: colors.b40,
     activeColor: colors.b80,
@@ -76,15 +76,15 @@ const LibraryOptions = [
       switches: [
         {
           name: 'velocity',
-          value: 'true',
-        }
-      ]
-    }
+          value: true,
+        },
+      ],
+    },
   },
   {
     title: 'no joystick',
     subtitle: 'chaos',
-    description: 'exit gender; enter an eyeless abomination with seven mouths',
+    description: '',
     borderColor: colors.c,
     fillColor: colors.c40,
     activeColor: colors.c80,
@@ -93,7 +93,7 @@ const LibraryOptions = [
   {
     title: 'pendeln',
     subtitle: 'lfo',
-    description: 'back and forth and back and forth and back and forth',
+    description: '',
     borderColor: colors.d,
     fillColor: colors.d40,
     activeColor: colors.d80,
@@ -115,13 +115,13 @@ const LibraryOptions = [
           value: '2000',
           hideLabel: true,
         },
-      ]
+      ],
     },
   },
   {
     title: 'post',
     subtitle: 'envelope',
-    description: 'write a letter to your lover',
+    description: 'from me to you',
     params: {
       knobs: [
         {
@@ -153,7 +153,7 @@ const LibraryOptions = [
           value: '0',
           hideLabel: true,
         },
-      ]
+      ],
     },
     borderColor: colors.e,
     fillColor: colors.e40,
@@ -163,7 +163,7 @@ const LibraryOptions = [
   {
     title: 'reflektion',
     subtitle: 'reverb',
-    description: 'find a chamber to reflect',
+    description: 'find a chamber to reflekt',
     borderColor: colors.f,
     fillColor: colors.f40,
     activeColor: colors.f80,
@@ -175,8 +175,8 @@ const LibraryOptions = [
           options: ['plate', 'spring', 'room', 'cathedral'],
           labels: ['plate', 'spring', 'room', 'cathedral'],
           value: 'room',
-          hideLabel: 'true'
-        }
+          hideLabel: 'true',
+        },
       ],
       knobs: [
         {
@@ -211,15 +211,15 @@ const LibraryOptions = [
       switches: [
         {
           name: 'velocity',
-          value: 'true',
-        }
-      ]
-    }
+          value: true,
+        },
+      ],
+    },
   },
   {
     title: 'sieb',
     subtitle: 'filter',
-    description: 'cut the worst parts out of your patch. because you\'re worth it',
+    description: '',
     borderColor: colors.g,
     fillColor: colors.g40,
     activeColor: colors.g80,
@@ -228,10 +228,16 @@ const LibraryOptions = [
       radioButtons: [
         {
           name: 'type',
-          options: ['low pass', 'high pass', 'band pass', 'band reject', 'peak'],
+          options: [
+            'low pass',
+            'high pass',
+            'band pass',
+            'band reject',
+            'peak',
+          ],
           labels: ['low pass', 'high pass', 'band pass', 'band reject', 'peak'],
           value: 'low pass',
-          hideLabel: 'true'
+          hideLabel: 'true',
         },
       ],
       knobs: [
@@ -240,22 +246,22 @@ const LibraryOptions = [
           max: '20000',
           value: '0',
           hideLabel: 'false',
-          name: 'freq'
+          name: 'freq',
         },
         {
           min: '0',
           max: '50',
           value: '0',
           hideLabel: 'false',
-          name: 'q'
+          name: 'q',
         },
-      ]
-    }
+      ],
+    },
   },
   {
     title: 'verbrecher',
     subtitle: 'bitcrusher',
-    description: 'smash capitalism. and waveforms',
+    description: '',
     borderColor: colors.h,
     fillColor: colors.h40,
     activeColor: colors.h80,
@@ -280,10 +286,10 @@ const LibraryOptions = [
       switches: [
         {
           name: 'velocity',
-          value: 'true',
-        }
-      ]
-    }
+          value: true,
+        },
+      ],
+    },
   },
   {
     title: 'wiedersehen',
@@ -302,6 +308,10 @@ const LibraryOptions = [
           step: '1',
           value: '0',
           hideLabel: true,
+          top: '0px',
+          left: '0px',
+          size: '70',
+          padding: '5px',
         },
         {
           name: 'time',
@@ -309,6 +319,10 @@ const LibraryOptions = [
           max: '2000',
           value: '2000',
           hideLabel: true,
+          top: '0px',
+          left: '80px',
+          size: '115',
+          padding: '5px',
         },
         {
           name: 'filter',
@@ -316,6 +330,10 @@ const LibraryOptions = [
           max: '20000',
           value: '1000',
           hideLabel: true,
+          top: '90px',
+          left: '10px',
+          size: '70',
+          padding: '5px',
         },
         {
           name: 'detune',
@@ -323,10 +341,14 @@ const LibraryOptions = [
           max: '100',
           value: '0',
           hideLabel: true,
+          top: '125px',
+          left: '95px',
+          size: '70',
+          padding: '5px',
         },
-      ]
+      ],
     },
-  }
+  },
 ];
 
 export default LibraryOptions;

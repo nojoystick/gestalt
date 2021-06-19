@@ -34,7 +34,7 @@ const PanelHeader = ({
   subtitle = 'synthesizer',
   isLarge,
   index,
-  isActive
+  isActive,
 }) => {
   const classes = useStyles({ isLarge: isLarge });
 
@@ -44,7 +44,12 @@ const PanelHeader = ({
         <h4 className={classes.title}>{title}</h4>
         <h5 className={classes.subtitle}>{subtitle}</h5>
       </div>
-      <Toggle isActive={isActive} onChange={AudioActions.toggleEffect} changeParam={index} isDispatch/>
+      <Toggle
+        isActive={isActive}
+        onChange={AudioActions.toggleEffect}
+        changeParam={index}
+        isDispatch
+      />
     </div>
   );
 };

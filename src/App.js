@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useSizeListener, useBrowserChecker, useDelayedUnmount } from './hooks';
+import {
+  useSizeListener,
+  useBrowserChecker,
+  useDelayedUnmount,
+  useTestHarness,
+  useAudioListener,
+} from './hooks';
 import {
   Modal,
   Header,
   Board,
-  Radix,
+  Quelle,
   MenuButton,
   PresetsMenu,
 } from './components';
 import { makeStyles } from '@material-ui/styles';
 import { colors } from './constants/theme';
-import { useMidiService } from './services';
+import { CoreAudioService, useMidiService } from './services';
 
 const useStyles = makeStyles({
   body: {
@@ -75,6 +81,8 @@ function App() {
   useSizeListener();
   useBrowserChecker();
   useMidiService();
+  useTestHarness();
+  useAudioListener();
   const renderModal = useDelayedUnmount(modalVisible, 1000);
 
   const toggleMenuVisible = () => {
@@ -85,6 +93,22 @@ function App() {
     setFadeIn(true);
   }, []);
 
+  useEffect(() => {
+    const initializeMasterGain = () => {
+      CoreAudioService.masterGainNode.gain.setValueAtTime(
+        0.5,
+        CoreAudioService.context.currentTime
+      );
+      CoreAudioService.preampGainNode.connect(CoreAudioService.masterGainNode);
+      CoreAudioService.masterGainNode.connect(
+        CoreAudioService.context.destination
+      );
+      CoreAudioService.monkeyPatch();
+      CoreAudioService.unlockAudioContext();
+    };
+    initializeMasterGain();
+  }, []);
+
   return (
     <div className={classes.body}>
       {renderModal && <Modal />}
@@ -92,7 +116,7 @@ function App() {
         <div>
           <Header />
           <div className={classes.parent}>
-            <Radix />
+            <Quelle />
             <Board />
           </div>
         </div>
